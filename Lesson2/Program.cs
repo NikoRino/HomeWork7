@@ -1,6 +1,17 @@
 ﻿// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
 
+void PrintNumber(int[,] massive, int a, int b, int m, int n)
+{
+    if (a > m || b > n)
+        Console.WriteLine("Tакого числа нет");
+    else
+    {
+        object c = massive.GetValue(a, b);
+        Console.WriteLine(c);
+    }
+}
+
 int GetInput(string text)
 {
     Console.Write(text);
@@ -39,10 +50,4 @@ int[,] massive = Create2DMassive(m, n, -99, 99);
 Print2Dmassive(massive);
 int a = GetInput("Введите координаты строки массива: ");
 int b = GetInput("Введите координаты строк массива: ");
-if (a > m || b > n)
-    Console.WriteLine("Tакого числа нет");
-else
-{
-    object c = massive.GetValue(a, b);
-    Console.WriteLine(c);
-}
+PrintNumber(massive, a, b, m, n);
